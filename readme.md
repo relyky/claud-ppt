@@ -31,11 +31,81 @@
 > Tip #7:   
 > configure CLAUDE.md, MCP servers, permissions, and slash commands for your team, and check them into git   
 > 為你的團隊設定好 CLAUDE.md、MCP 伺服器、權限與斜線指令，並將它們提交到 Git 版本庫中。
-   
+
+# Common workflows
+就是 prompt 怎麼下比較好。 
+總之就是：在編寫代碼前先制定計劃，就這樣。
+在編寫代碼前，在開始做一點探索、做一點規劃，
+
+### 註：個人心得   
+總之俱體就是：   
+(1) 在編寫代碼前一開始做相關探索，  
+(2) 然後下需求或問題 → 叫AI先思考(頭腦風暴)再給予計劃或建議方案 → 在執行前先批準。   
+ 
+> Explore > plan > confirm > code > commit
+```
+> Figure out the root cause for issue #983, then propose a few fixes. Let me choose an approach before you code. ultrathink.
+```
+
+> Write tests > commit > code > iterate > commit
+```
+> Write test for @utils/markdown.ts to make sure links render properly (note the tests wan't pass yet, since links aren't yet implemented). Then commit. Then update the code to make the tests pass.
+```
+
+> Write code > screenshot result > iterate
+```
+> Implement [mock.png]. Then screenshot it with Puppeteer and iterate till it looks like the mock.
+``` 
+※ Puppeteer 是一款由Google 開發的Node.js 函式庫，提供JavaScript API 來控制Chrome 或Chromium 瀏覽器。
+
+# Give Claude context
+>
+> **More context = better performance**
+>
+
+`CLAUDE.md` 一言難盡啊！   
+
+There are a number of ways to give Claude more context:
+ - CLAUDE.md
+   - CLAUDE.local.md
+ - Slash commands
+   - `/help`
+ - At-mentioning filenames
+   - `@filename1 @filename2 ...`
+ - (coming soon: MCP resources)
+ 
+## Give Claude more context
+
+ - `/<enterprise root>/CLAUDE.md`
+ - `~/.claude/CLAUDE.md`
+ - `project-root/`   
+   * `CLAUDE.md`   
+   * `CLAUDE.local.md`	 
+
+## Give Claude more context (commands & settings.json)
+ - `~/.claude/commands/foo.md`
+ - `project-root/`
+   - `.claude/commands/foo.md`
+   - `a/`
+     - `commands/foo.md`
+	 - `CLAUDE.md`
+	 - `foo.py`
+ 
+``` 
+1 .claude
+2 ├── commands
+3 │   ├── create-release-pr.md
+4 │   ├── fix-github-issue.md
+5 │   ├── get-feedback.md
+6 │   ├── label-github-issues.md
+7 │   └── lint.md
+8 ├── settings.json
+9 └── settings.local.json 
+``` 
+
 # 參考來源
 - bilibili [Anthropic内部员工2天快速入职的秘诀？官方创建者揭秘Claude Code终极用法](https://www.bilibili.com/video/BV1c5JDzyEH7/?spm_id_from=333.788.videopod.sections&vd_source=c0cbb7db1f35153d8ef998e4cbecdbe7)   
 - youtube [Mastering Claude Code in 30 minutes](https://www.youtube.com/watch?v=6eBSHbLKuN0)  
-
 
 # 演講投影片
 ![2025-10-30-10-13-48-1](2025-10-30-10-13-48-1.webp)
