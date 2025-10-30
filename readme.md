@@ -45,16 +45,19 @@
 > Explore > plan > confirm > code > commit
 ```
 > Figure out the root cause for issue #983, then propose a few fixes. Let me choose an approach before you code. ultrathink.
+> 找出第 983 號問題的根本原因，然後提出幾個修復方案。在你開始撰寫程式碼之前，讓我先選擇要採用的方法。請深入思考。
 ```
 
 > Write tests > commit > code > iterate > commit
 ```
 > Write test for @utils/markdown.ts to make sure links render properly (note the tests wan't pass yet, since links aren't yet implemented). Then commit. Then update the code to make the tests pass.
+> 撰寫 @utils/markdown.ts 的測試，以確保連結能正確渲染（注意：測試目前尚不會通過，因為連結功能尚未實作）。接著提交（commit）變更，然後更新程式碼，使測試通過。
 ```
 
 > Write code > screenshot result > iterate
 ```
 > Implement [mock.png]. Then screenshot it with Puppeteer and iterate till it looks like the mock.
+> 實作 [mock.png] 的設計。然後使用 Puppeteer 截圖，並不斷調整，直到畫面與設計稿相符。
 ``` 
 ※ Puppeteer 是一款由Google 開發的Node.js 函式庫，提供JavaScript API 來控制Chrome 或Chromium 瀏覽器。
 
